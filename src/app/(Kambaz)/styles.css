@@ -40,4 +40,5 @@ body * {
   color: black;
   background-color: white;
   border-left: 3px solid black !important;
+  padding-left: 1rem !important;
 }
