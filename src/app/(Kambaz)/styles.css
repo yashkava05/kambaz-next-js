@@ -41,4 +41,5 @@ body * {
   background-color: white;
   border-left: 3px solid black !important;
   padding-left: 1rem !important;
+  margin-left: 3px;
 }
