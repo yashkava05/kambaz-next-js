@@ -1,6 +1,11 @@
 "use client";
 
 import { useParams } from "next/navigation";
+import { ListGroup, ListGroupItem } from "react-bootstrap";
+import { BsGripVertical } from "react-icons/bs";
+import ModulesControls from "./ModuleControls";
+import ModuleControlButtons from "./ModuleControlButtons";
+import LessonControlButtons from "./LessonControlButtons";
 
 interface ModuleLesson {
   title: string;
@@ -17,7 +22,7 @@ export default function Modules() {
   const cid = params.cid as string;
 
   const courseModules: Record<string, CourseModule[]> = {
-    "1234":[
+    "1234": [
       {
         title: "Week 1 - React Fundamentals",
         lessons: [
@@ -25,9 +30,15 @@ export default function Modules() {
           { title: "READING", items: ["React Documentation - Getting Started", "Modern JavaScript Features"] },
           { title: "SLIDES", items: ["Introduction to React", "JSX Syntax", "Component Architecture"] }
         ]
+      },
+      {
+        title: "Week 2 - State Management",
+        lessons: [
+          { title: "LEARNING OBJECTIVES", items: ["Understanding State", "Props vs State", "Event Handling"] }
+        ]
       }
     ],
-    "5678":[
+    "5678": [
       {
         title: "Week 1 - Web Development Basics",
         lessons: [
@@ -43,34 +54,35 @@ export default function Modules() {
         ]
       }
     ],
-    "5011":[
+    "5011": [
       {
         title: "Week 1 - Software Development Principles",
         lessons: [
           { title: "LEARNING OBJECTIVES", items: ["Software Development Life Cycle", "Version Control with Git", "Agile Methodologies"] }
         ]
       },
-      { title: "Week 2 - Object-Oriented Programming",
+      {
+        title: "Week 2 - Object-Oriented Programming",
         lessons: [
           { title: "LEARNING OBJECTIVES", items: ["Classes and Objects", "Inheritance and Polymorphism", "Design Patterns"] }
         ]
-      } 
+      }
     ],
-    "5012":[
+    "5012": [
       {
         title: "Week 1 - Cloud Computing Basics",
         lessons: [
           { title: "LEARNING OBJECTIVES", items: ["Cloud Service Models", "Introduction to AWS", "Setting up a Cloud Environment"] }
         ]
-      },
+      }
     ],
-    "5013":[
+    "5013": [
       {
         title: "Week 1 - UI/UX Design Fundamentals",
         lessons: [
           { title: "LEARNING OBJECTIVES", items: ["Design Principles", "User Research Methods", "Wireframing and Prototyping"] }
         ]
-      },
+      }
     ]
   };
 
@@ -82,27 +94,33 @@ export default function Modules() {
       ]
     }
   ];
-  
+
   return (
     <div>
-      <ul id="wd-modules">
-        {modules.map((module:CourseModule , moduleIndex: number) => (
-          <li key={moduleIndex} className="wd-module">
-            <div className="wd-title">{module.title}</div>
-            <ul className="wd-lessons">
-              {module.lessons.map((lesson:ModuleLesson, lessonIndex:number) => (
-                <li key={lessonIndex} className="wd-lesson">
-                  <span className="wd-title">{lesson.title}</span>
-                  <ul className="wd-content">
-                    {lesson.items.map((item:string, itemIndex:number) => (
-                      <li key={itemIndex} className="wd-content-item">{item}</li>
-                    ))}
-                  </ul>
-                </li>
+      <ModulesControls />
+      <br /><br /><br /><br />
+      
+      <ListGroup className="rounded-0" id="wd-modules">
+        {modules.map((module: CourseModule, moduleIndex: number) => (
+          <ListGroupItem key={moduleIndex} className="p-0 mb-5 fs-5 border-gray">
+            <div className="wd-title p-3 ps-2 bg-secondary">
+              <BsGripVertical className="me-2 fs-3" />
+              {module.title}
+              <ModuleControlButtons />
+            </div>
+            
+            <ListGroup className="rounded-0">
+              {module.lessons.map((lesson: ModuleLesson, lessonIndex: number) => (
+                <ListGroupItem key={lessonIndex} className="wd-lesson p-3 ps-1 border-gray">
+                  <BsGripVertical className="me-2 fs-3" />
+                  {lesson.title}
+                  <LessonControlButtons />
+                </ListGroupItem>
               ))}
-            </ul>
-          </li>
+            </ListGroup>
+          </ListGroupItem>
         ))}
-      </ul>
+      </ListGroup>
     </div>
-);}
+  );
+}
