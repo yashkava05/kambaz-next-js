@@ -13,7 +13,8 @@ export default function TOC() {
         <NavLink 
           href="/Labs" 
           as={Link}
-          active={pathname === "/Labs"}
+          //active={pathname === "/Labs"}
+          className={`nav-link ${pathname.endsWith("Labs") ? "active" : ""}`}
         >
           Labs
         </NavLink>
@@ -22,7 +23,8 @@ export default function TOC() {
         <NavLink 
           href="/Labs/Lab1" 
           as={Link}
-          active={pathname.includes("/Labs/Lab1")}
+          //active={pathname.includes("/Labs/Lab1")}
+          className={`nav-link ${pathname.endsWith("Lab1") ? "active" : ""}`}
         >
           Lab 1
         </NavLink>
@@ -31,7 +33,8 @@ export default function TOC() {
         <NavLink 
           href="/Labs/Lab2" 
           as={Link}
-          active={pathname.includes("/Labs/Lab2")}
+          //active={pathname.includes("/Labs/Lab2")}
+          className={`nav-link ${pathname.endsWith("Lab2") ? "active" : ""}`}
         >
           Lab 2
         </NavLink>
@@ -40,7 +43,8 @@ export default function TOC() {
         <NavLink 
           href="/Labs/Lab3" 
           as={Link}
-          active={pathname.includes("/Labs/Lab3")}
+          //active={pathname.includes("/Labs/Lab3")}
+          className={`nav-link ${pathname.endsWith("Lab3") ? "active" : ""}`}
         >
           Lab 3
         </NavLink>

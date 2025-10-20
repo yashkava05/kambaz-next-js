@@ -1,0 +1,90 @@
+[
+  {
+    "_id": "M101",
+    "name": "Week 1",
+    "description": "Introduction to Rocket Propulsion",
+    "course": "RS101",
+    "lessons": [
+      {
+        "_id": "L101",
+        "name": "LEARNING OBJECTIVES",
+        "description": "Introduction to the course",
+        "module": "M101"
+      },
+      {
+        "_id": "L102",
+        "name": "READING",
+        "description": "Chapter 1 - Introduction",
+        "module": "M101"
+      },
+      {
+        "_id": "L103",
+        "name": "SLIDES",
+        "description": "Fundamentals of Rocket Propulsion",
+        "module": "M101"
+      }
+    ]
+  },
+  {
+    "_id": "M102",
+    "name": "Week 2",
+    "description": "Fuel and Combustion",
+    "course": "RS101",
+    "lessons": [
+      {
+        "_id": "L201",
+        "name": "LEARNING OBJECTIVES",
+        "description": "Understanding rocket fuel",
+        "module": "M102"
+      },
+      {
+        "_id": "L202",
+        "name": "READING",
+        "description": "Chapter 2 - Fuel Types",
+        "module": "M102"
+      }
+    ]
+  },
+  {
+    "_id": "M103",
+    "name": "Week 3",
+    "description": "Nozzle Design",
+    "course": "RS101",
+    "lessons": [
+      {
+        "_id": "L301",
+        "name": "LEARNING OBJECTIVES",
+        "description": "Nozzle design principles",
+        "module": "M103"
+      }
+    ]
+  },
+  {
+    "_id": "M201",
+    "name": "Week 1",
+    "description": "Introduction to Aerodynamics",
+    "course": "RS102",
+    "lessons": [
+      {
+        "_id": "L401",
+        "name": "LEARNING OBJECTIVES",
+        "description": "Basics of aerodynamics",
+        "module": "M201"
+      }
+    ]
+  },
+  {
+    "_id": "M202",
+    "name": "Week 2",
+    "description": "Fluid Dynamics",
+    "course": "RS102",
+    "lessons": []
+  },
+  {
+    "_id": "M301",
+    "name": "Week 1",
+    "description": "Spacecraft Structure",
+    "course": "RS103",
+    "lessons": []
+  }
+]
