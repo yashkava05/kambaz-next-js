@@ -5,6 +5,18 @@ import { FaUserCircle } from "react-icons/fa";
 import { Table } from "react-bootstrap";
 import * as db from "../../../../Database";
 
+// Add interface
+interface User {
+  _id: string;
+  firstName: string;
+  lastName: string;
+  loginId: string;
+  section: string;
+  role: string;
+  lastActivity: string;
+  totalActivity: string;
+}
+
 export default function PeopleTable() {
   const { cid } = useParams();
   const { users, enrollments } = db;
@@ -24,14 +36,14 @@ export default function PeopleTable() {
         </thead>
         <tbody>
           {users
-            .filter((user) =>
+            .filter((user: User) =>
               enrollments.some(
                 (enrollment) => 
                   enrollment.user === user._id && 
                   enrollment.course === cid
               )
             )
-            .map((user: any) => (
+            .map((user: User) => (
               <tr key={user._id}>
                 <td className="wd-full-name text-nowrap">
                   <FaUserCircle className="me-2 fs-1 text-secondary" />
