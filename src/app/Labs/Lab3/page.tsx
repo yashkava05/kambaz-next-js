@@ -1,5 +1,5 @@
 import VariablesAndConstants from "./VariablesAndConstants";
-import VariableTypes from "./VaribaleTypes";
+import VariableTypes from "./VariableTypes";
 import BooleanVariables from "./BooleanVariables";
 import IfElse from "./IfElse";
 import TernaryOperator from "./TernaryOperator";
