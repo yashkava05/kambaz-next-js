@@ -29,7 +29,6 @@ import Highlight from "./Highlight";
 import PathParameters from "./PathParameters";
 import TodoItem from "./todos/TodoItem";
 import TodoList from "./todos/TodoList";
-import { log } from "console";
 import ForLoops from "./ForLoops";
 import FindIndex from "./FindIndex";
 
