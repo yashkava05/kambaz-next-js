@@ -32,12 +32,12 @@ export default function Labs() {
           </Link>
         </li>
         <li>
-          
+          <a
             href="https://github.com/yashkava05/kambaz-next-js"
             id="wd-github"
             target="_blank"
             rel="noopener noreferrer"
-          <a>
+          >
             GitHub Repository
           </a>
         </li>
