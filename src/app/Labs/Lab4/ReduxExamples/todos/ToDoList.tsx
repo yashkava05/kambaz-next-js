@@ -2,8 +2,8 @@
 import { useSelector, useDispatch } from "react-redux";
 import { deleteTodo, setTodo } from "./todosReducer";
 import { ListGroup } from "react-bootstrap";
-import TodoForm from "./TodoForm";
-import TodoItem from "./TodoItem";
+import TodoForm from "./ToDoForm";
+import TodoItem from "./ToDoItem";
 
 export default function TodoList() {
   const { todos } = useSelector((state: any) => state.todosReducer);

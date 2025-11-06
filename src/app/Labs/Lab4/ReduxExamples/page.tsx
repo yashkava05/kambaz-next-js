@@ -2,7 +2,7 @@
 import HelloRedux from "./HelloRedux/page";
 import CounterRedux from "./CounterRedux/page";
 import AddRedux from "./AddRedux/page";
-import TodoList from "./todos/TodoList";
+import TodoList from "./todos/ToDoList";
 
 export default function ReduxExamples() {
   return (
