@@ -1,5 +1,4 @@
 "use client";
-
 import { Nav, NavItem, NavLink } from "react-bootstrap";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -8,60 +7,59 @@ export default function TOC() {
   const pathname = usePathname();
   
   return (
-    <Nav variant="pills" className="flex-column">
+    <Nav variant="pills">
       <NavItem>
-        <NavLink 
-          href="/Labs" 
+        <NavLink
+          href="/Labs"
           as={Link}
-          //active={pathname === "/Labs"}
           className={`nav-link ${pathname.endsWith("Labs") ? "active" : ""}`}
         >
           Labs
         </NavLink>
       </NavItem>
       <NavItem>
-        <NavLink 
-          href="/Labs/Lab1" 
+        <NavLink
+          href="/Labs/Lab1"
           as={Link}
-          //active={pathname.includes("/Labs/Lab1")}
           className={`nav-link ${pathname.endsWith("Lab1") ? "active" : ""}`}
         >
           Lab 1
         </NavLink>
       </NavItem>
       <NavItem>
-        <NavLink 
-          href="/Labs/Lab2" 
+        <NavLink
+          href="/Labs/Lab2"
           as={Link}
-          //active={pathname.includes("/Labs/Lab2")}
           className={`nav-link ${pathname.endsWith("Lab2") ? "active" : ""}`}
         >
           Lab 2
         </NavLink>
       </NavItem>
       <NavItem>
-        <NavLink 
-          href="/Labs/Lab3" 
+        <NavLink
+          href="/Labs/Lab3"
           as={Link}
-          //active={pathname.includes("/Labs/Lab3")}
           className={`nav-link ${pathname.endsWith("Lab3") ? "active" : ""}`}
         >
           Lab 3
         </NavLink>
       </NavItem>
       <NavItem>
-        <NavLink 
-          href="/" 
+        <NavLink
+          href="/Labs/Lab4"
           as={Link}
+          className={`nav-link ${pathname.endsWith("Lab4") ? "active" : ""}`}
         >
+          Lab 4
+        </NavLink>
+      </NavItem>
+      <NavItem>
+        <NavLink href="/" as={Link}>
           Kambaz
         </NavLink>
       </NavItem>
       <NavItem>
-        <NavLink 
-          href="https://github.com/yashkava05/kambaz-next-js"
-          target="_blank"
-        >
+        <NavLink href="https://github.com/yashkava05">
           My GitHub
         </NavLink>
       </NavItem>

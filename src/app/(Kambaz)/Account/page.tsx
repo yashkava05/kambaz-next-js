@@ -1,5 +1,6 @@
+"use client";
 import { redirect } from "next/navigation";
 
-export default function AccountPage() {
+export default function Kambaz() {
   redirect("/Account/Signin");
 }

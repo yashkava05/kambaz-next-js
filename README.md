@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kambaz Next.js Application - Assignment 4
 
-## Getting Started
+## Test Credentials
 
-First, run the development server:
+### Faculty User (for testing CRUD operations)
+- Username: `bob`
+- Password: `bob123`
+- Role: FACULTY
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Student User (for testing enrollments)
+- Username: `alice`
+- Password: `alice123`
+- Role: STUDENT
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Testing Instructions
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Navigate to the application
+2. Sign in with credentials above
+3. Faculty users can Create/Edit/Delete courses, modules, and assignments
+4. Student users can view courses and enroll/unenroll
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Navigation
+- Landing page redirects to Sign In
+- After sign in, redirects to Dashboard
+- Labs are accessible via the Labs link in the sidebar
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Assignment 4 Features
+- All Lab 4 exercises completed
+- Redux state management implemented
+- Dashboard CRUD operations
+- Modules CRUD operations
+- Assignments CRUD operations
+- User authentication and profiles
