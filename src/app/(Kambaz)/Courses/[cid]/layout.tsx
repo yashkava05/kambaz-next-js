@@ -1,29 +1,28 @@
-"use client";
 import { ReactNode } from "react";
 import CourseNavigation from "./Navigation";
-import { useSelector } from "react-redux";
-import { useParams } from "next/navigation";
 import { FaAlignJustify } from "react-icons/fa6";
 
 export default function CoursesLayout({
   children,
-}: Readonly<{ children: ReactNode }>) {
-  const { cid } = useParams();
-  const { courses } = useSelector((state: any) => state.coursesReducer);
-  const course = courses.find((course: any) => course._id === cid);
-
+  params,
+}: Readonly<{ 
+  children: ReactNode; 
+  params: Promise<{ cid: string }> 
+}>) {
   return (
     <div id="wd-courses">
       <h2 className="text-danger">
         <FaAlignJustify className="me-4 fs-4 mb-1" />
-        {course?.name} {/* This displays the selected course */}
+        Course
       </h2>
       <hr />
       <div className="d-flex">
         <div className="d-none d-md-block">
           <CourseNavigation />
         </div>
-        <div className="flex-fill">{children}</div>
+        <div className="flex-fill">
+          {children}
+        </div>
       </div>
     </div>
   );

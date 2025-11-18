@@ -1,55 +1,45 @@
 "use client";
-import Link from "next/link";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { setCurrentUser } from "../reducer";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
-import * as db from "../../Database";
-import { FormControl, Button } from "react-bootstrap";
+import * as client from "../client";
+import { Form, Button } from "react-bootstrap";
+import Link from "next/link";
 
 export default function Signin() {
-  const [credentials, setCredentials] = useState<any>({
-    username: "",  // Initialize with empty string
-    password: "",  // Initialize with empty string
-  });
+  const [credentials, setCredentials] = useState<any>({});
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
   const router = useRouter();
-
-  const signin = () => {
-    const user = db.users.find(
-      (u: any) =>
-        u.username === credentials.username &&
-        u.password === credentials.password
-    );
-    if (!user) {
-      alert("Invalid credentials");
-      return;
+  
+  const signin = async () => {
+    try {
+      const user = await client.signin(credentials);
+      if (!user) return;
+      dispatch(setCurrentUser(user));
+      router.push("/Dashboard");
+    } catch (err: any) {
+      setError(err.response?.data?.message || "Login failed");
     }
-    dispatch(setCurrentUser(user));
-    router.push("/Dashboard");
   };
-
+  
   return (
     <div id="wd-signin-screen">
       <h1>Sign in</h1>
-      <FormControl
-        value={credentials.username}
-        onChange={(e) =>
-          setCredentials({ ...credentials, username: e.target.value })
-        }
-        className="mb-2"
-        placeholder="username"
+      {error && <div className="alert alert-danger">{error}</div>}
+      <Form.Control
         id="wd-username"
-      />
-      <FormControl
-        value={credentials.password}
-        onChange={(e) =>
-          setCredentials({ ...credentials, password: e.target.value })
-        }
+        placeholder="username"
         className="mb-2"
+        onChange={(e) => setCredentials({ ...credentials, username: e.target.value })}
+      />
+      <Form.Control
+        id="wd-password"
         placeholder="password"
         type="password"
-        id="wd-password"
+        className="mb-2"
+        onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
       />
       <Button onClick={signin} id="wd-signin-btn" className="w-100 mb-2">
         Sign in

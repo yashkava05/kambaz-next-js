@@ -1,25 +1,37 @@
 "use client";
+import * as client from "./client";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { setCurrentUser } from "./reducer";
+import { useDispatch } from "react-redux";
 
 export default function Session({ children }: { children: any }) {
   const [pending, setPending] = useState(true);
   const dispatch = useDispatch();
-
-  const fetchProfile = () => {
-    // In Chapter 5, this will fetch from server
-    // For now, just check localStorage or session
+  
+  const fetchProfile = async () => {
+    try {
+      const currentUser = await client.profile();
+      dispatch(setCurrentUser(currentUser));
+    } catch (err: any) {
+      // 401 means not logged in - this is fine
+      console.log("No active session");
+    }
     setPending(false);
   };
-
+  
   useEffect(() => {
     fetchProfile();
   }, []);
-
+  
   if (!pending) {
     return children;
   }
-
-  return <div>Loading...</div>;
+  
+  return (
+    <div className="d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
+      <div className="spinner-border text-primary" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  );
 }
