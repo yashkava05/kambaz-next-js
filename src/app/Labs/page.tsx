@@ -27,6 +27,11 @@ export default function Labs() {
           </Link>
         </li>
         <li>
+          <Link href="/Labs/Lab5" id="wd-lab5-link">
+            Lab 5: Node.js and RESTful APIs
+          </Link>
+        </li>
+        <li>
           <Link href="/" id="wd-kambaz-link">
             Kambaz Application
           </Link>

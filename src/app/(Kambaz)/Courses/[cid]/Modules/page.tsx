@@ -18,14 +18,17 @@ export default function Modules() {
   const dispatch = useDispatch();
 
   const fetchModules = async () => {
-    const modules = await courseClient.findModulesForCourse(cid as string);
+    if (!cid) return;
+    const courseId = Array.isArray(cid) ? cid[0] : cid;
+    const modules = await courseClient.findModulesForCourse(courseId);
     dispatch(setModules(modules));
   };
 
   const createModuleForCourse = async () => {
     if (!cid) return;
-    const newModule = { name: moduleName, course: cid };
-    const module = await courseClient.createModuleForCourse(cid as string, newModule);
+    const courseId = Array.isArray(cid) ? cid[0] : cid;
+    const newModule = { name: moduleName, course: courseId };
+    const module = await courseClient.createModuleForCourse(courseId, newModule);
     dispatch(addModule(module));
     setModuleName("");
   };
