@@ -1,21 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-interface Assignment {
-  _id: string;
-  title: string;
-  course: string;
-  description?: string;
-  points?: number;
-  dueDate?: string;
-  availableFromDate?: string;
-  availableUntilDate?: string;
-}
-
-interface AssignmentsState {
-  assignments: Assignment[];
-}
-
-const initialState: AssignmentsState = {
+const initialState = {
   assignments: [],
 };
 
@@ -23,23 +8,28 @@ const assignmentsSlice = createSlice({
   name: "assignments",
   initialState,
   reducers: {
-    setAssignments: (state, action) => {
-      state.assignments = action.payload;
+    setAssignments: (state, { payload: assignments }) => {
+      state.assignments = assignments;
     },
     addAssignment: (state, { payload: assignment }) => {
-      state.assignments = [...state.assignments, assignment];
+      state.assignments = [...state.assignments, assignment] as any;
     },
     deleteAssignment: (state, { payload: assignmentId }) => {
-      state.assignments = state.assignments.filter((a) => a._id !== assignmentId);
+      state.assignments = state.assignments.filter((a: any) => a._id !== assignmentId);
     },
     updateAssignment: (state, { payload: assignment }) => {
-      state.assignments = state.assignments.map((a) =>
+      state.assignments = state.assignments.map((a: any) =>
         a._id === assignment._id ? assignment : a
-      );
+      ) as any;
+    },
+    editAssignment: (state, { payload: assignmentId }) => {
+      state.assignments = state.assignments.map((a: any) =>
+        a._id === assignmentId ? { ...a, editing: true } : a
+      ) as any;
     },
   },
 });
 
-export const { addAssignment, deleteAssignment, updateAssignment, setAssignments } =
+export const { addAssignment, deleteAssignment, updateAssignment, editAssignment, setAssignments } =
   assignmentsSlice.actions;
 export default assignmentsSlice.reducer;
