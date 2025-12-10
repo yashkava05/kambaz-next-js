@@ -1,19 +1,25 @@
+
 "use client";
-import React from "react";
-import { Provider } from "react-redux";
+
+import React from 'react'
+import ClickEvent from './ClickEvent'
+import PassingDataOnEvent from './PassingDataOnEvent'
+import PassingFunctions from './PassingFunctions'
+import EventObject from './EventObject';
+import Counter from './Counter';
+import BooleanStateVariables from './BooleanStateVariables';
+import StringStateVariables from './StringStateVariables';
+import DateStateVariable from './DateStateVariable';
+import ObjectStateVariable from './ObjectStateVariable';
+import ArrayStateVariable from './ArrayStateVariable';
+import ParentStateComponent from './ParentStateComponent';
+import ReduxExamples from './ReduxExamples/page';
+
+
 import store from "./store";
-import ClickEvent from "./ClickEvent";
-import PassingDataOnEvent from "./PassingDataOnEvent";
-import PassingFunctions from "./PassingFunctions";
-import EventObject from "./EventObject";
-import Counter from "./Counter";
-import BooleanStateVariables from "./BooleanStateVariables";
-import StringStateVariables from "./StringStateVariables";
-import DateStateVariable from "./DateStateVariable";
-import ObjectStateVariable from "./ObjectStateVariable";
-import ArrayStateVariable from "./ArrayStateVariable";
-import ParentStateComponent from "./ParentStateComponent";
-import ReduxExamples from "./ReduxExamples"; // Changed from ./ReduxExamples/page
+
+
+import { Provider } from "react-redux";
 
 export default function Lab4() {
   function sayHello() {
@@ -22,21 +28,22 @@ export default function Lab4() {
 
   return (
     <Provider store={store}>
-      <div id="wd-lab4" className="container">
-        <h2>Lab 4</h2>
-        <ClickEvent />
-        <PassingDataOnEvent />
-        <PassingFunctions theFunction={sayHello} />
-        <EventObject />
-        <Counter />
-        <BooleanStateVariables />
-        <StringStateVariables />
-        <DateStateVariable />
-        <ObjectStateVariable />
-        <ArrayStateVariable />
-        <ParentStateComponent />
-        <ReduxExamples />
-      </div>
+    <div id = "wd-lab4">
+      <h2>Lab 4: Maintaining State in React Applications</h2>
+      <br />
+      <ClickEvent />
+      <PassingDataOnEvent />
+      <PassingFunctions theFunction={sayHello} />
+      <EventObject />
+      <Counter />
+      <BooleanStateVariables />
+      <StringStateVariables />
+      <DateStateVariable />
+      <ObjectStateVariable />
+      <ArrayStateVariable />
+      <ParentStateComponent />
+      <ReduxExamples />
+    </div>
     </Provider>
-  );
+  )
 }

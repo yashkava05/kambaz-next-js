@@ -1,3 +1,5 @@
+
+
 export default function FunctionDestructing() {
  const add = (a: number, b: number) => a + b;
  const sum = add(1, 2);
@@ -13,4 +15,5 @@ export default function FunctionDestructing() {
      sum = {sum}<br />
      difference = {difference} <hr />
    </div>
-);}
+  );
+}

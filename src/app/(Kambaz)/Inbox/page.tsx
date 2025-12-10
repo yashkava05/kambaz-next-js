@@ -1,7 +1,9 @@
-export default function Calendar() {
+
+
+export default function Inbox() {
   return (
     <div>
-        <h2>Simple Inbox</h2>
-    </div> 
+      <h1>This is the inbox page</h1>
+    </div>
   );
 }

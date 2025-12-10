@@ -1,66 +1,51 @@
-import axios from "axios";
 
+import axios from "axios";
 const HTTP_SERVER = process.env.NEXT_PUBLIC_HTTP_SERVER;
-const ASSIGNMENT_API = `${HTTP_SERVER}/lab5/assignment`;
 const TODOS_API = `${HTTP_SERVER}/lab5/todos`;
 
-interface Assignment {
-  id: number;
-  title: string;
-  description: string;
-  due: string;
-  completed: boolean;
-  score: number;
-}
-
-interface Todo {
-  id: number;
-  title: string;
-  description?: string;
-  completed: boolean;
-}
-
-export const fetchWelcomeMessage = async (): Promise<string> => {
-  const response = await axios.get(`${HTTP_SERVER}/lab5/welcome`);
+export const fetchWelcomeMessage = async () => {
+  const response = await axios.get(`${HTTP_SERVER}/Lab5/welcome`);
   return response.data;
 };
-
-export const fetchAssignment = async (): Promise<Assignment> => {
+const ASSIGNMENT_API = `${HTTP_SERVER}/lab5/assignment`;
+export const fetchAssignment = async () => {
   const response = await axios.get(`${ASSIGNMENT_API}`);
   return response.data;
 };
-
-export const updateTitle = async (title: string): Promise<Assignment> => {
+export const updateTitle = async (title: string) => {
   const response = await axios.get(`${ASSIGNMENT_API}/title/${title}`);
   return response.data;
 };
 
-export const fetchTodos = async (): Promise<Todo[]> => {
+export const fetchTodos = async () => {
   const response = await axios.get(`${TODOS_API}`);
   return response.data;
 };
 
-export const removeTodo = async (todo: Todo): Promise<Todo[]> => {
+export const removeTodo = async (todo: any) => {
   const response = await axios.get(`${TODOS_API}/${todo.id}/delete`);
   return response.data;
 };
 
-export const createNewTodo = async (): Promise<Todo[]> => {
+export const createNewTodo = async () => {
   const response = await axios.get(`${TODOS_API}/create`);
   return response.data;
 };
 
-export const postNewTodo = async (todo: Partial<Todo>): Promise<Todo> => {
+export const postNewTodo = async (todo: any) => {
   const response = await axios.post(`${TODOS_API}`, todo);
   return response.data;
 };
 
-export const deleteTodo = async (todo: Todo): Promise<void> => {
+export const deleteTodo = async (todo: any) => {
   const response = await axios.delete(`${TODOS_API}/${todo.id}`);
   return response.data;
 };
 
-export const updateTodo = async (todo: Todo): Promise<void> => {
+export const updateTodo = async (todo: any) => {
   const response = await axios.put(`${TODOS_API}/${todo.id}`, todo);
   return response.data;
 };
+
+
+

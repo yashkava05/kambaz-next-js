@@ -1,3 +1,4 @@
+
 export default function Styles() {
   const colorBlack = { color: "black" };
   const padding10px = { padding: "10px" };
@@ -16,4 +17,5 @@ export default function Styles() {
       <div style={ bgRed }> Red background </div>
       <div style={ bgBlue }>Blue background</div>
     </div>
-);};
+  );
+};

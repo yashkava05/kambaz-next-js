@@ -1,8 +1,9 @@
+
+
 export default function Zoom() {
   return (
-    <div className="p-4">
-      <h2>Zoom</h2>
-      <p>Virtual meetings coming soon...</p>
+    <div>
+      <h1>This is the zoom page.</h1>
     </div>
   );
 }

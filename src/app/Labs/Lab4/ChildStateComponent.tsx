@@ -1,3 +1,5 @@
+
+
 export default function ChildStateComponent({
   counter,
   setCounter,
@@ -11,14 +13,12 @@ export default function ChildStateComponent({
       <button
         onClick={() => setCounter(counter + 1)}
         id="wd-increment-child-state-click"
-        className="btn btn-success me-2"
       >
         Increment
       </button>
       <button
         onClick={() => setCounter(counter - 1)}
         id="wd-decrement-child-state-click"
-        className="btn btn-danger"
       >
         Decrement
       </button>
