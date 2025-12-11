@@ -1,11 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   images: {
-    domains: ['www.staradvertiser.com'],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "www.staradvertiser.com",
+      },
+    ],
   },
 };
 
