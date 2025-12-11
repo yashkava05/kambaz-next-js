@@ -1,5 +1,3 @@
-
-
 import axios from "axios";
 const HTTP_SERVER = process.env.NEXT_PUBLIC_HTTP_SERVER;
 const axiosWithCredentials = axios.create({ withCredentials: true });
@@ -39,7 +37,7 @@ export const findMyCourses = async () => {
 };
 
 export const createCourse = async (course: any) => {
-  const { data } = await axiosWithCredentials.post(`${USERS_API}/current/courses`, course);
+  const { data } = await axiosWithCredentials.post(COURSES_API, course);
   return data;
 };
 
